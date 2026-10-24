@@ -146,10 +146,10 @@ class ReactionGame:
     def start_round(self):
         self.cancel_timers()
         self.state = "red"
-        self.message.config(text="Dikkat...")
+        self.message.config(text="Wait...")
         self.hint.config(text="Wait on red, no early clicking!")
-        self.set_target_color("red", "BEKLE")
-        self.start_button.config(text="YENİDEN BAŞLAT")
+        self.set_target_color("red", "Wait")
+        self.start_button.config(text="Try again")
 
         delay_ms = random.randint(
             self.MIN_WAIT_SECONDS * 1000,
@@ -190,7 +190,7 @@ class ReactionGame:
         self.cancel_timers()
         self.state = state
         self.message.config(text=message)
-        self.hint.config(text="Yeni tur için düğmeye bas.")
+        self.hint.config(text="Press the button to start a new round")
         if state == "won":
             self.set_target_color("green", "U WON!")
         elif state == "lost":
